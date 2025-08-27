@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Iron Lung</title>
+  <style>
+    /* Reset */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+  background-color: #f4f4f4; /* or use #f4f4f4 depending on your exact shade */
+}
+
+   body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+
+
+
+
+ /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #FF4500;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FF4500;
+        }
+
+        .nav-cta {
+            background: #FF4500;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: #e03d00;
+            transform: translateY(-2px);
+        }
+
+
+  
+
+    /* Content Wrapper to account for fixed navbar height */
+    .content-wrapper {
+      flex: 1 0 auto;
+      padding: 80px 1rem 2rem; /* top padding to avoid navbar overlap */
+      max-width: 800px;
+      margin: auto;
+      width: 100%;
+      box-sizing: border-box;
+      background: #f4f4f4;
+    }
+
+    /* Contact page styles */
+    .contact-title {
+      background: linear-gradient(45deg, #f55814, #464645);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 3rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .contact-subtitle {
+      font-size: 1.2rem;
+      color: #555;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      /* box-shadow: 0 6px 14px rgba(0,0,0,0.1); */
+      margin-bottom: 2rem;
+    }
+
+    .contact-form h2 {
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: #383737;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid #525151;
+      background: #fbfafa;
+      color: #fff;
+      border-radius: 8px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background: #ff6b35;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+      margin-top: 1rem;
+    }
+
+    .contact-info {
+      background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid #444;
+      color: #eee;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .contact-info h3 {
+      color: #ff6b35;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info p {
+      margin: 0.75rem 0;
+    }
+
+    .extras {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #444;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .extras h3 {
+      color: #ff6b35;
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease, color 0.3s ease;
+      color: #ff6b35;
+      font-size: 1.4rem;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.2) rotate(20deg);
+      color: #ff6b35;
+      cursor: pointer;
+    }
+
+    /* Footer styles */
+    footer {
+      flex-shrink: 0;
+      width: 100vw;
+      margin: 0;
+      padding: 3rem 1rem;
+      box-sizing: border-box;
+      background: #1a1a1a;
+      color: #eee;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+    }
+
+    footer .container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+
+    .footer-section {
+      flex: 1 1 180px;
+      min-width: 180px;
+      padding: 0 1rem;
+    }
+
+    .footer-section h3 {
+      color: #ff6b35;
+      margin-bottom: 1rem;
+    }
+
+    .footer-section a {
+      display: block;
+      color: #ccc;
+      margin-bottom: 0.6rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: #ff6b35;
+    }
+
+    .footer-section .social-links {
+      gap: 1.3rem;
+      font-size: 1.4rem;
+      display: flex;
+    }
+
+    .footer-bottom {
+      margin-top: 2.5rem;
+      border-top: 1px solid #333;
+      padding-top: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+
+<!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="ironlung_homepage.html" class="logo">IRONLUNG</a>
+             <ul class="nav-links">
+                <li><a href="ironlung_homepage.html">Features</a></li>
+                <li><a href="ironlung_homepage.html">Technology</a></li>
+                <li><a href="ironlung_homepage.html">Success Stories</a></li>
+                <li><a href="ironlung_homepage.html">Contact</a></li>
+            </ul>
+            <a href="ironlung_homepage.html" class="nav-cta">Back To Home</a>
+        </nav>
+    </header>
+  
+  <div class="content-wrapper">
+    <div id="contact" class="page">
+      <h1 class="contact-title">Contact Us</h1>
+
+      <p class="contact-subtitle">
+        We’re here to assist you with your questions, orders, or product support.
+        Our dedicated team is always ready to help you every step of the way.
+      </p>
+
+      <div class="contact-form">
+        <h2>Get in Touch</h2>
+        <form id="contact-form">
+          <label>Name</label>
+          <input type="text" name="name" required />
+
+          <label>Email</label>
+          <input type="email" name="email" required />
+
+          <label>Message</label>
+          <textarea name="message" rows="5" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <h3>Quick Contact</h3>
+        <p><strong>📧 Email:</strong> info@ironlung.in</p>
+        <p><strong>📞 Phone:</strong> +91 9876543210</p>
+        <p><strong>📍 Address:</strong> 401H DJAC, IIT Kanpur, Uttar Pradesh 208016</p> 
+        <p><strong>⏰ Business Hours:</strong> Mon-Sat 9AM-6PM</p>
+      </div>
+
+      <div class="extras">
+        <h3>For Gym Partnerships</h3>
+        <p>Interested in bringing Iron Lung to your gym? Contact our business development team for bulk pricing and partnership opportunities.</p>
+
+        <div class="social-links" aria-label="Social Media Links">
+         
+          <a href="https://www.instagram.com/ironlung.in/" title="Instagram" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="#ff6b35" stroke-width="2"/>
+              <circle cx="12" cy="12" r="5.5" stroke="#ff6b35" stroke-width="2"/>
+              <circle cx="17" cy="7" r="1.5" fill="#ff6b35"/>
+            </svg>
+          </a>
+          <a href="#" title="Twitter" aria-label="Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24" stroke="#ff6b35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+            </svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24">
+              <rect x="3" y="6" width="18" height="12" rx="4" stroke="#ff6b35" stroke-width="2"/>
+              <polygon points="10,9 16,12 10,15" fill="#ff6b35"/>
+            </svg>
+          </a>
+          <a href="#" title="LinkedIn" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="4" stroke="#ff6b35" stroke-width="2"/>
+              <rect x="6" y="10" width="2" height="6" fill="#ff6b35"/>
+              <circle cx="7" cy="8" r="1" fill="#ff6b35"/>
+              <rect x="10" y="10" width="2" height="6" fill="#ff6b35"/>
+              <path d="M12 10h2.5c1.5 0 2.5 1.008 2.5 2.25V16" stroke="#ff6b35" stroke-width="1.5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+  <!-- footer -->
+
+
+
+  <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Iron Lung</h3>
+                <p>Revolutionary respiratory training equipment for enhanced lung capacity and athletic performance.</p>
+                <p>More Oxygen, More Power</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Perfect For</h3>
+                <a href="#">Fitness Centers & Gyms</a>
+                <a href="#">Professional Athletes</a>
+                <a href="#">Swimming Academies</a>
+                <a href="#">Home Fitness Users</a>
+                <a href="#">Rehabilitation Centers</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Features</h3>
+                <a href="#">Smart Card Integration</a>
+                <a href="#">WhatsApp Reports</a>
+                <a href="#">Personal Dashboard</a>
+                <a href="#">5 Intensity Levels</a>
+                <a href="#">Real-time Tracking</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <a href="tel:+918853667396">+91 8853667396</a>
+                <a href="mailto:info@ironlung.in">info@ironlung.in</a>
+                <!-- <a href="https://www.ironlung.com">www.ironlung.com</a>
+                <a href="https://www.istrairon.com">www.istrairon.com</a> -->
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Iron Lung. All rights reserved. | More Oxygen, More Power</p>
+        </div>
+    </footer>
+
+
+    <style>
+      /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #FF4500;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #adb5bd;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #343a40;
+            padding-top: 2rem;
+            text-align: center;
+            color: #6c757d;
+        }
+
+        .certification {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #32CD32;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    </style>
+
+<!-- Confirmation Popup Modal -->
+<div id="sidePopup" class="side-popup" style="width: 0;">
+  <div class="side-popup-content">
+    <p>Your message has been sent successfully.</p>
+  </div>
+</div>
+
+
+<style>
+.side-popup {
+  height: 70px;
+  width: 0;  /* start hidden */
+  top: 45px;
+  position: fixed;
+  right: 0;
+  background-color: #ff6b35;
+  overflow: hidden;
+  transition: width 0.4s ease;
+  z-index: 10000;
+  color: white;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-popup-content {
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+}
+
+</style>
+<script>
+  const sidePopup = document.getElementById('sidePopup');
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Show popup - expand width
+    sidePopup.style.width = '250px';
+
+    // Reset form
+    form.reset();
+
+    // Hide popup after 3 seconds
+    setTimeout(() => {
+      sidePopup.style.width = '0';
+    }, 3000);
+  });
+</script>
+
+
+
+</body>
+</html>
