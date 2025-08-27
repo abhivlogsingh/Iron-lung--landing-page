@@ -2732,5 +2732,75 @@
             </form>
         </div>
     </div>
+
+    <script>
+  // 🔹 Demo Form Submit
+  document.getElementById("demoForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const data = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      organization: document.getElementById("organization").value,
+      message: document.getElementById("message").value,
+    };
+
+    try {
+      const res = await fetch("https://iron-lungs-backend.onrender.com/api/demos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      if (res.ok) {
+        alert("✅ Demo request submitted successfully!");
+        document.getElementById("demoForm").reset();
+        closeDemoModal();
+      } else {
+        const err = await res.json();
+        alert("❌ Failed: " + (err.error || err.message));
+      }
+    } catch (error) {
+      console.error("Error submitting demo form:", error);
+      alert("⚠️ Something went wrong. Please try again later.");
+    }
+  });
+
+  // 🔹 Quote Form Submit
+  document.getElementById("quoteForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const data = {
+      name: document.getElementById("quote-name").value,
+      email: document.getElementById("quote-email").value,
+      phone: document.getElementById("quote-phone").value,
+      organization: document.getElementById("quote-organization").value,
+      units: document.getElementById("quote-units").value,
+      requirements: document.getElementById("quote-requirements").value,
+    };
+
+    try {
+      const res = await fetch("https://iron-lungs-backend.onrender.com/api/quotes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      if (res.ok) {
+        alert("✅ Quote request submitted successfully!");
+        document.getElementById("quoteForm").reset();
+        closeQuoteModal();
+      } else {
+        const err = await res.json();
+        alert("❌ Failed: " + (err.error || err.message));
+      }
+    } catch (error) {
+      console.error("Error submitting quote form:", error);
+      alert("⚠️ Something went wrong. Please try again later.");
+    }
+  });
+</script>
+
 </body>
 </html>
